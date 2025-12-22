@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️</title>
+    <link rel="stylesheet" href="css/main.css" id="themeStyle">
+</head>
+<body>
+    <div id="welcome" class="screen">
+        <h1>Привіт! 👋</h1>
+        <p>Вав, що за красуня читає це💝</p>
+        <p>Бачу ти вагаєшся, якщо так тисни на кнопку👇</p>
+        <p>PS. той хто тобі показав цей сайт точно його не писав😁</p>
+        <button id="startBtn" class="fancyBtn">Почати</button>
+        <button id="themeBtn" class="fancyBtn">Змінити дизайн 🎨</button>
+    </div>
+
+    <div id="questionCountScreen" class="screen" style="display:none;">
+        <h2>Скільки питань хочеш пройти? 🤔</h2>
+        <div id="countOptions">
+            <button class="fancyBtn countBtn">1</button>
+            <button class="fancyBtn countBtn">5</button>
+            <button class="fancyBtn countBtn">10</button>
+            <button class="fancyBtn countBtn">20</button>
+            <button class="fancyBtn countBtn">50</button>
+        </div>
+    </div>
+
+    <div id="nameInputScreen" class="screen" style="display:none;">
+        <h2>Хто показав тобі цей сайт? 🤔</h2>
+        <input type="text" id="showerNameInput" placeholder="Введи ім'я" />
+        <button id="continueBtn" class="fancyBtn">Продовжити</button>
+    </div>
+
+    <div id="quiz" class="screen" style="display:none;">
+        <h2 id="question"></h2>
+        <div id="answers"></div>
+    </div>
+
+    <div id="result" class="screen" style="display:none;">
+        <h1>Результат 🎉</h1>
+        <p id="resultText"></p>
+        <button id="restartBtn" class="fancyBtn">Спробувати ще раз</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
