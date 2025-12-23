@@ -91,15 +91,17 @@ window.addEventListener('resize', () => {
 let snowflakes = [];
 function initSnow() {
     snowflakes = [];
-    for (let i = 0; i < 200; i++) {
+    const numFlakes = Math.min(Math.floor(window.innerWidth/5), 200); 
+    for (let i = 0; i < numFlakes; i++) {
         snowflakes.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            r: Math.random() * 4 + 1,
-            d: Math.random() * 2
+            r: Math.random() * 3 + 1, 
+            d: Math.random() * 1.5
         });
     }
 }
+
 function drawSnow() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "white";
@@ -111,18 +113,21 @@ function drawSnow() {
     ctx.fill();
     moveSnow();
 }
-let angle = 0;
+
 function moveSnow() {
     angle += 0.01;
     for (let f of snowflakes) {
-        f.y += Math.cos(angle + f.d) + 1 + f.r/2;
-        f.x += Math.sin(angle) * 2;
+        f.y += Math.cos(angle + f.d) + 0.5 + f.r/2; 
+        f.x += Math.sin(angle) * 1.5;
         if (f.x > canvas.width + 5 || f.x < -5 || f.y > canvas.height) {
-            f.x = Math.random()*canvas.width;
+            f.x = Math.random() * canvas.width;
             f.y = -10;
         }
     }
 }
+
 initSnow();
-setInterval(drawSnow, 25);
+setInterval(drawSnow, 30);
+
+
 showHerMessages();
