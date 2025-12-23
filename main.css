@@ -85,7 +85,7 @@ body {
     height: 50px;
     border-radius: 50%;
     border: none;
-    background: url('send_icon.png') no-repeat center center;
+    background: url('paper_plane.png') no-repeat center center;
     background-size: 60%;
     cursor: pointer;
     transition: transform 0.2s;
@@ -102,3 +102,4 @@ canvas#snow {
     z-index: 0;
 
 }
+
