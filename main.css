@@ -81,18 +81,18 @@ body {
 }
 
 #input-fixed button {
-    padding: 10px 20px;
-    border-radius: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     border: none;
-    background-color: #ff4b5c;
-    color: white;
-    font-weight: bold;
+    background: url('send_icon.png') no-repeat center center;
+    background-size: 60%;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: transform 0.2s;
 }
 
 #input-fixed button:hover {
-    background-color: #e03e50;
+    transform: scale(1.1);
 }
 
 canvas#snow {
@@ -100,4 +100,5 @@ canvas#snow {
     top: 0;
     left: 0;
     z-index: 0;
+
 }
