@@ -82,36 +82,41 @@ function resizeCanvas(){ canvas.width=window.innerWidth; canvas.height=window.in
 window.addEventListener('resize', () => { resizeCanvas(); initSnow(); });
 resizeCanvas();
 
-let snowflakes=[];
-let angle=0;
-function initSnow(){
-    snowflakes=[];
-    const num = Math.min(Math.floor(window.innerWidth/5),200);
-    for(let i=0;i<num;i++){
-        snowflakes.push({
-            x: Math.random()*canvas.width,
-            y: Math.random()*canvas.height,
-            r: Math.random()*3+1,
-            d: Math.random()*1.5
-        });
-    }
+// --- сніг ---
+const snowflakes = [];
+const numFlakes = 150;
+
+for(let i=0; i<numFlakes; i++){
+    snowflakes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 3 + 1,
+        speed: Math.random() * 1 + 0.5
+    });
 }
+
 function drawSnow(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="white";
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
     ctx.beginPath();
-    for(let f of snowflakes){ ctx.moveTo(f.x,f.y); ctx.arc(f.x,f.y,f.r,0,Math.PI*2,true);}
+    for(let f of snowflakes){
+        ctx.moveTo(f.x, f.y);
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
+    }
     ctx.fill();
     moveSnow();
 }
+
 function moveSnow(){
-    angle+=0.01;
     for(let f of snowflakes){
-        f.y += Math.cos(angle+f.d)+0.5+f.r/2;
-        f.x += Math.sin(angle)*1.5;
-        if(f.x>canvas.width+5||f.x<-5||f.y>canvas.height){ f.x=Math.random()*canvas.width; f.y=-10;}
+        f.y += f.speed;
+        if(f.y > canvas.height){
+            f.y = -f.r;
+            f.x = Math.random() * canvas.width;
+        }
     }
 }
-initSnow();
-setInterval(drawSnow,30);
+
+setInterval(drawSnow, 30);
+
 showHerMessages();
